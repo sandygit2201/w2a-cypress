@@ -15,3 +15,11 @@ a.unshift(0) // [0,1,2,3,4,5]
 a.pop() // [0,1,2,3,4]
 a.shift() // [1,2,3,4]
 a.sort() // will sort data in an array
+
+let a1 = [1,2,3,4]
+let a2 = [5,6,7,8]
+let a3 = [9,10]
+
+let numbers = a1.concat(a2,a3)
+
+console.log(numbers)
