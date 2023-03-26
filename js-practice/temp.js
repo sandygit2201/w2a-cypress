@@ -1,14 +1,41 @@
-let a =[1,2,3,4,5,6,7,2]
+// getting digits out a number 
+//  n is number of digits 
+// calculate nth power of digit 
+//  total of nthpower of digits 
 
-// console.log(a.indexOf(2))
 
-let indexes =[]
-for(let index =0;index<a.length;index++){
 
-    if(a[index]==2)
-      indexes.push(index)
 
+function getDigitsOfNumber(num){
+  let digits =[]
+   while(num>0){
+    digits.push(num%10)
+    num = Math.trunc(num/10)
+   }
+   return digits
 }
 
-console.log(indexes)
+function getSumOfNthPowOfDigits(digits){
+  let total = 0;
+  let length = digits.length
+  // map
+  for(let i=0;i<digits.length;i++){
+    let nthPowerOfDigit = Math.pow(digits[i],length)
+    console.log(`pow(${digits[i]},${length})= ${nthPowerOfDigit}`)
+    total = total + nthPowerOfDigit
+  }
+  return total;
+  
+}
+let num = 1634;
+
+let digits = getDigitsOfNumber(num)
+console.log(digits)
+let total = getSumOfNthPowOfDigits(digits)
+console.log("total::"+total)
+
+if(total == num)
+ console.log("Given number is armStrong")
+ else 
+ console.log("Given number is not armStrong")
 
