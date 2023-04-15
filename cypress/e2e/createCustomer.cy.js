@@ -3,6 +3,8 @@ import utils from "../support/utils";
 
 describe('add customer test scenarios', () => {
 
+    
+
     it('Add a customer and verity', () => {
         //  invoke base url 
         cy.visit('/');
@@ -83,7 +85,7 @@ describe('add customer test scenarios', () => {
 
 //    verify number of account added 
 
-cy.get('button.home').click()
+    cy.get('button.home').click()
        cy.contains('Customer Login').click()
 
        cy.get('#userSelect').select(customerName)
@@ -93,8 +95,14 @@ cy.get('button.home').click()
 
 
        // deposit and amount 
-
-
+        
+      cy.contains('Deposit').click();
+      cy.get("input[type='number']").type('100')
+      cy.xpath("//button[text()='Deposit']").click()
+      cy.contains('Deposit Successful').should('be.visible')
+      cy.xpath("(//div[@ng-hide='noAccount']/strong)[2]").invoke('text').then(balance=>{
+        balance.should("eq",100)
+      })
        
       // search and delete customer 
 

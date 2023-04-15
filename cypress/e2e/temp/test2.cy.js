@@ -10,14 +10,10 @@ describe('share data between tests',()=>{
         cy.saveLocalStorage()
     })
 
-    it('test1',()=>{
-
-        cy.setLocalStorage('name',"sandy")
-
-    })
-
     it('test 2',()=>{
         cy.getLocalStorage("name").should("equal", "sandy");
+        cy.getLocalStorage("balance").should("equal", "0");
+        
     })
 
 })

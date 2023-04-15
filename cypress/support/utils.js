@@ -7,8 +7,6 @@ class utils{
         return uuidv4().replace('-','').substring(0,length)
 
     }
-
-
 }
 
 export default new utils()
