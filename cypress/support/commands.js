@@ -23,3 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+  Cypress.Commands.add('customerLogin',(customerName)=>{
+
+    cy.contains("Customer Login").click()
+    cy.get('#userSelect').select(customerName)
+    cy.contains('Login').click();
+    cy.contains(`Welcome ${customerName} !! `).should('be.visible')
+
+  })
+
+  Cypress.Commands.add('userLoginAndSaveSession',(user,pwd)=>{
+    cy.session([user,pwd],()=>{
+      cy.visit('/')
+      cy.get('input[name="username"]').type(user)
+      cy.get('input[name="password"]').type(pwd)
+      cy.get('button[type="submit"]').click()
+      cy.contains('Dashboard').should('be.visible')
+  })
+  })

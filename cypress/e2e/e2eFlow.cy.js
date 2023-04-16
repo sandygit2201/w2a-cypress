@@ -49,6 +49,7 @@ describe('writing script with page obj pattern',()=>{
         .then(customerName=>{
             homePage.loginAsCustomer(customerName);
         })
+
         
     })
 
@@ -77,6 +78,8 @@ describe('writing script with page obj pattern',()=>{
             assert.equal(balance,150)
          })
     })
+
+    
 })
 
 
