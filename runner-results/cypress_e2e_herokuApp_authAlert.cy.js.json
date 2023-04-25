@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 1,
+  "passes": 1,
+  "pending": 0,
+  "failures": 0,
+  "start": "2023-04-23T12:58:10.776Z",
+  "duration": 5440,
+  "file": "cypress/e2e/herokuApp/authAlert.cy.js"
+}

@@ -4,17 +4,32 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "npx cypress run --record --key=47eb2360-f2ff-44d1-80e5-60463950daf5",
+    "run-local": "npx cypress run -b chrome",
+    "heroku": "npx cypress run -b chrome --spec cypress/e2e/heroku/",
+    "dashboard": "npx cypress run  -b chrome --spec cypress/e2e/herokuApp/alerts.cy.js --record --key=47eb2360-f2ff-44d1-80e5-60463950daf5",
+    "parallel": "cypress-parallel -s run-local -d cypress/e2e/herokuApp -t 3 -m false",
+    "smoke-chrome":"npx cypress run -b chrome --spec cypress/e2e/herokuApp/alerts.cy.js",
+    "smoke-headless":"npx cypress run --spec cypress/e2e/herokuApp/alerts.cy.js",
+    "smoke-cross-browser":"npm run smoke-headless &&  npm run smoke-chrome"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.9.0",
-    "cypress-localstorage-commands": "^2.2.3"
+    "cypress-file-upload": "^5.0.8",
+    "cypress-localstorage-commands": "^2.2.3",
   },
   "dependencies": {
+    "cypress-downloadfile": "^1.2.3",
+    "cypress-parallel": "^0.12.0",
     "cypress-xpath": "^2.0.1",
-    "uuid": "^9.0.0"
+    "install": "^0.13.0",
+    "npm": "^9.6.5",
+    "read-excel-file": "^5.6.1",
+    "uuid": "^9.0.0",
+    "xlsx": "^0.18.5"
   }
 }
